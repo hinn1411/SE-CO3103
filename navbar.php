@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +10,8 @@
         <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <title>FUNNY</title>
     </head>
 
@@ -19,15 +22,21 @@
             <div class="container-fluid row">
                 <div class="col-md-2"></div>
                 <div class="container col-md-6 d-flex  justify-content-evenly">
-                    <a href="./../product/male.php" class="anchor-style">Nam</a>
-                    <a href="./../product/female.php" class="anchor-style">Nữ</a>
-                    <a href="./../product/product.php" class="anchor-style">Sản Phẩm</a>
-                    <a href="./../intro/intro.php" class="anchor-style">Giới Thiệu</a>
+                    <a href="./../product/male.php" 
+                    style="text-decoration: none; color: black;">Nam</a>
+                    <a href="./../product/female.php" 
+                    style="text-decoration: none; color: black;">Nữ</a>
+                    <a href="./../product/product.php" 
+                    style="text-decoration: none; color: black;">Sản Phẩm</a>
+                    <a href="./../intro/intro.php" 
+                    style="text-decoration: none; color: black;">Giới Thiệu</a>
                 </div>
                 <div class="container col-md-2 d-flex justify-content-evenly">
                     <div><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <div><i class="fa-solid fa-user"></i></div>
-                    <div><i class="fa-solid fa-cart-shopping"></i></div>
+                    <div><a style="text-decoration: none; color:black;"
+                    href="./../user/infor.php"><i class="fa-solid fa-user"></i></a></div>
+                    <div><a style="text-decoration: none; color:black;"
+                    href="./../cart/cart.php"><i class="fa-solid fa-cart-shopping"></i></a></div>
                 </div>
                 <div class="col-md-2"></div>
             </div>

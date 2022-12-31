@@ -44,3 +44,9 @@ footer {
     padding-top: 0.5%;
     padding-bottom: 0.5%;
 }
+
+sup {
+    background-color: black;
+    vertical-align: super;
+    font-size: smaller;
+}
