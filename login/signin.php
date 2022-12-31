@@ -3,7 +3,7 @@
     include_once './../connect.php';
     if(isset($_GET['submit'])) {
         if(empty($_GET['name'])|| empty($_GET['gender']) || empty($_GET['dob'])
-        || empty($_GET['username']) || empty($_GET['password'])) {
+        || empty($_GET['username']) || empty($_GET['password']) || empty($_GET['repassword'])) {
             echo '<script>alert("Không được để trống thông tin")</script>';
         } else {
             $name = $_GET['name'];
@@ -11,9 +11,12 @@
             $dob = $_GET['dob'];
             $username = $_GET['username'];
             $password = $_GET['password'];
+            $repassword = $_GET['repassword'];
             $query = "SELECT * FROM user WHERE user.account = '$username'";
             $res = mysqli_query($connect, $query);
-            if(mysqli_num_rows($res) > 0) {
+            if($password != $repassword) {
+                echo '<script>alert("Mật khẩu phải trùng nhau")</script>';
+            } else if(mysqli_num_rows($res) > 0) {
                 echo '<script>alert("Tên tài khoản đã tồn tại")</script>';
             } else {
                 $query = "INSERT INTO user (account, password, name, gender, dob) 
@@ -51,7 +54,9 @@
                         </div>
                         <div class="mb-3">
                             <input class="form-control" type="password" placeholder="Mật khẩu" name="password">
-    
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="password" placeholder="Nhập lại mật khẩu" name="repassword">
                         </div>
                         <div class="row">
                             <div class="col">

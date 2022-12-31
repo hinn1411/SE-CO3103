@@ -71,15 +71,16 @@
                 <hr>
                 <div class="row">
                     <div class="col fs-4">Tổng Tiền</div>
-                    <div class="col org-color"><?php echo number_format($_SESSION['tot'], 0, '.', ',') ?></div>
+                    <div class="col orange"><?php echo number_format($_SESSION['tot'], 0, '.', ',') ?> đ</div>
                 </div>
                 <hr>
-                <a href="/view-cart/view-cart-success.html"><button type="button" class="container btn btn-light text-dark buy-button">Mua</button></a>
+                <a href="./../cart/checkout.php"><button id="buy" type="button" class="container btn btn-dark text-white orange">Mua</button></a>
             </div>
             <div class="col-md-2"></div>
         </div>
     </main>
-    <script> 
+    <script>
+
         function minus(id) {
             let num = parseInt($("#quantity_" + id).val());
             Update_Delete(id, num - 1);

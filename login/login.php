@@ -25,7 +25,7 @@
                 $numOfRows = mysqli_num_rows($res);
                 if($numOfRows > 0) {
                     if($username == $row[1] && $password == $row[2]) {
-                        $_SESSION['user'] = TRUE;
+                        $_SESSION['user'] = $username;
                         header("location:./../home/home.php");
                     }
                 } else {
