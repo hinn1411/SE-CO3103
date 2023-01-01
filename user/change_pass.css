@@ -1,0 +1,264 @@
+* {
+    font-family: 'Inter';
+    font-weight: bolder;
+    font-size: 10px;
+    --base-color: hsl(78, 33%, 90%);
+    --org-color: #FF5C00;
+    overflow-x: hidden;
+}
+
+header {
+    padding-top: 0.25%;
+    padding-bottom: 0.35%;
+}
+
+.base-color {
+    background-color: var(--base-color);
+}
+
+.nor {
+    font-weight: normal;
+}
+
+.org-color {
+    color: var(--org-color);
+}
+
+.logo-font {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.social-media-icon > a {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+} 
+
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+}
+
+.content {
+    width: 100%;
+    height: 700px;
+    background-color: rgba(254, 250, 224, 30%);
+}
+
+.navi_1 {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    top: 100px;
+    left: 100px;
+}
+
+.user {
+    top: 100px;
+    left: 300px;
+}
+.avt_1 {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
+    width: 60px;
+    height: auto;
+}
+.username {
+    position: absolute;
+    top: 20px;
+    left: 95px;
+
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 35px;
+    line-height: 50px;
+    /* identical to box height */
+
+    align-items: center;
+    text-align: center;
+
+    color: #D4A373;    
+}
+
+.navi_1 a {
+    position: relative;
+    width: 248px;
+    height: 38px;
+    top: 100px;
+    left: 15px;
+
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 38px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #D4A373;
+}
+
+.board {
+    position: absolute;
+    width: 1000px;
+    height: 625px;
+    right: 100px;
+    top: 100px;
+
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 25%);
+}
+/* PART 1 */
+h1 {
+    position: absolute;
+    left: 50px;
+    top: 10px;
+
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 50px;
+
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+/* PART 2 */
+.line {
+    position: absolute;
+    width: 500px;
+    height: 0px;
+    right: 10px;
+    top: 270px;
+
+    opacity: 0.05;
+    border: 1px solid #000000;
+    transform: rotate(90deg);
+}
+
+.select {
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    right: 45px;
+    top: 230px;
+
+    background: #D9D9D9;
+    border-radius: 50px;
+}
+
+a.s_1 {
+    position: absolute;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    left: 25px;
+
+    color: #000000;
+}
+p.s_2 {
+    position: absolute;
+    top: 290px;
+    width: 180px;
+    right: 35px;
+
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.pw {
+    position: absolute;
+    top: 80px;
+    width: 200px;
+    height: auto;
+    right: 30px;
+}
+
+/* Style inputs */
+input[type=password], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=date], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #FF5C00;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+
+    border-radius: 50px;
+}
+
+input[type=submit]:hover {
+    background-color: #e36014;
+}
+
+
+/* Create two columns that float next to eachother */
+.column {
+    float: left;
+    position: relative;
+    left: 30px;
+    width: 50%;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
