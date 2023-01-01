@@ -1,7 +1,7 @@
 <?php
-    session_start();
     include_once './../connect.php';
     include_once './../navbar.php';
+    session_start();
     $_SESSION['tot'] = 0;
 ?>
     <main>
@@ -108,7 +108,12 @@
             });
         }
     </script>               
-            
+<?php
+  if(isset($_SESSION['user'])) {
+    $username = $_SESSION['user'];
+    echo $username;
+  }
+?>
 <?php
     // print_r($_SESSION['cart']);
     include_once './../footer.php';

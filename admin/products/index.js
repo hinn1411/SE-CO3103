@@ -18,7 +18,7 @@ $(".btn-edit").click(function (e) {
 });
 
 $(".btn-delete").click(function (e) {
-  var id = this.data("id");
+  var id = this.getAttribute('data-bs-id');
   $("#DeleteProductModal input[name='id']").val(id);
   $("#DeleteProductModal").modal("show");
 });

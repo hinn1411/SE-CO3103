@@ -10,6 +10,42 @@ require_once('./../../connect.php');
 <?php
 require_once('./../content_layouts.php'); ?>
 
+<?php
+    if(isset($_POST['add'])) {
+        if(empty($_POST['name']) || empty($_POST['price']) || 
+        empty($_POST['sale'])) {
+            echo '<script>alert("Không được để trống thông tin")</script>';
+        } else {
+            $name = $_POST['name'];
+            $price = $_POST['price'];
+            $image = $_POST['sale'];
+
+            $query = "INSERT INTO product (name, price, image, gender) VALUES ('$name', $price, '$image', 'Nam');";
+            mysqli_query($connect, $query);
+        }
+    }
+
+    if(isset($_POST['update'])) {
+        if(empty($_POST['name']) || empty($_POST['price']) || empty($_POST['sale']) 
+        || empty($_POST['id'])) {
+            echo '<script>alert("Không được để trống thông tin")</script>';
+        } else {
+            $name = $_POST['name'];
+            $price = $_POST['price'];
+            $image = $_POST['sale'];
+            $id = $_POST['id'];
+
+            $query = "UPDATE product SET name = '$name', price = '$price', image = '$image' WHERE id = '$id'";
+            mysqli_query($connect, $query);
+        }
+    }
+
+    if(isset($_POST['delete'])) {
+        $id = $_POST['id'];
+        $query = "DELETE FROM product WHERE id = '$id'";
+        mysqli_query($connect, $query);
+    }
+?>
 
 <?php
     if(isset($_POST['add'])) {
@@ -99,7 +135,7 @@ require_once('./../content_layouts.php'); ?>
                                     echo "<td><img style=\"width: 100px; height:100px;\" src='$row[3]'></td>";
                                     echo "
                                         <td>
-                                        <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px\" data-bs-id='$row[0]' data-bs-name='$row[1]' data-bs-price='$row[2]' data-bs-description='$row[2]' data-bs-content='$row[2]' data-bs-sale='$row[2]' data-bs-img='$row[3]' data-bs-target='#EditProductModal' data-bs-toggle='modal'><svg xmlns='http://www.w3.org/2000/svg' width='13' height='13' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+                                        <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px\" data-bs-id='$row[0]' data-bs-name='$row[1]' data-bs-price='$row[2]' data-bs-description='$row[2]' data-bs-content='$row[2]' data-bs-sale='$row[3]' data-bs-img='$row[3]' data-bs-target='#EditProductModal' data-bs-toggle='modal'><svg xmlns='http://www.w3.org/2000/svg' width='13' height='13' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
                                         <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
                                         <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
                                         </svg></button>
@@ -149,7 +185,7 @@ require_once('./../content_layouts.php'); ?>
                                             <h5 class="modal-title">Chỉnh sửa</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <form id="form-edit-product" action="index.php?page=admin&controller=products&action=edit" enctype="multipart/form-data" method="post">
+                                        <form id="form-edit-product" action="" enctype="multipart/form-data" method="post">
                                             <div class="modal-body">
                                                 <div class="col-12"><label>ID</label> <input class="form-control my-2" type="text" placeholder="Name" name="id" readonly /></div>
                                                 <div class="row">
@@ -157,13 +193,12 @@ require_once('./../content_layouts.php'); ?>
                                                     <div class="col-6"><label>Giá</label><input class="form-control my-2" type="number" placeholder="Giá" name="price" required/></div>
                                                 </div>
 
-                                                <div class="form-group"><label>Sale</label><input class="form-control my-2" type="number" placeholder="Sale" name="sale" required/></div>
-                                                <div class="form-group"> <label>Mô tả</label> <textarea class="form-control my-2" name="description" rows="5" required></textarea></div>
-                                                <div class="form-group"> <label>Nội dung</label> <textarea class="form-control my-2" name="content" rows="5" required></textarea></div>
-                                                <div class="form-group"><label>Url Hình ảnh </label><input class="form-control my-2" type="text" name="img" readonly /></div>
-                                                <div class="form-group"> <label> Hình ảnh </label>&nbsp <input type="file" class="form-control my-2" name="fileToUpload" id="fileToUpload"/></div>
+                                                <div class="form-group"><label>Hình ảnh</label><input class="form-control my-2" type="text" placeholder="Liên kết hình ảnh" name="sale" required/></div>
                                             </div>
-                                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button><button class="btn btn-primary formedit" type="submit">Chỉnh sửa</button></div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button>
+                                                <button class="btn btn-primary formedit" type="submit" name="update">Chỉnh sửa</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -176,12 +211,15 @@ require_once('./../content_layouts.php'); ?>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                                         </div>
-                                        <form action="index.php?page=admin&controller=products&action=delete" method="post">
+                                        <form action="" method="post">
                                             <div class="modal-body">
-                                                <input class="form-control my-2" name="id" disabled/>
+                                                <input type ="text" class="form-control my-2" name="id" id="id" readonly>
                                                 <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
                                             </div>
-                                            <div class="modal-footer"><button class="btn btn-danger btn-outline-light" type="button" data-bs-dismiss="modal">Đóng</button><button class="btn btn-danger btn-outline-light" type="submit">Xóa</button></div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-danger btn-outline-light" type="button" data-bs-dismiss="modal">Đóng</button>
+                                                <button class="btn btn-danger btn-outline-light" type="submit" name="delete">Xóa</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

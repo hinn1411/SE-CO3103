@@ -1,12 +1,12 @@
 <?php
+    session_start();
     include_once './../navbar.php';
     include_once './../connect.php';
-    session_start();
     if(isset($_SESSION['admin'])) {
         header("location:./../admin/layouts");
     }
     if(isset($_SESSION['user'])) {
-        header("location:./../user/infor.php");
+        header("location:./../home/home.php");
     }
     if(isset($_GET['login'])) {
         $username = $_GET['username'];

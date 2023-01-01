@@ -62,14 +62,13 @@ require_once('./../content_layouts.php'); ?>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12 col-lg-6 col-xl-6 mt-4">
+				<!-- <div class="col-md-12 col-lg-6 col-xl-6 mt-4">
 					<div class="card">
-						<!-- <img src="..." class="card-img-top" alt="..."> -->
 						<div class="card-body">
 							<a href="./../comments/index.php" class="btn btn-primary">Quản lý Đơn hàng</a>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div><!-- /.container-fluid -->
 	</section>

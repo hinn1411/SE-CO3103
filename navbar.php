@@ -32,9 +32,13 @@
                     style="text-decoration: none; color: black;">Giới Thiệu</a>
                 </div>
                 <div class="container col-md-2 d-flex justify-content-evenly">
-                    <div><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <div><a style="text-decoration: none; color:black;"
-                    href="./../user/infor.php"><i class="fa-solid fa-user"></i></a></div>
+                    <div>
+                            <i class="fa-solid fa-magnifying-glass"></i>   
+                    </div>
+                    <!-------------Sửa chỗ này-------------->
+                    <div><a style="text-decoration: none; color:black;">
+                    <button style="padding: 0; background: none; border: none;" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-user"></i></button></a></div>
+                    <!-------------------------------------->
                     <div><a style="text-decoration: none; color:black;"
                     href="./../cart/cart.php"><i class="fa-solid fa-cart-shopping"></i></a></div>
                 </div>
