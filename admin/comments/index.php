@@ -1,17 +1,14 @@
+
 <?php
-session_start();
-if (!isset($_SESSION["user"])) {
-    header("Location: index.php?page=admin&controller=login&action=index");
-}
+require_once('./../header.php');
+require_once('./../../connect.php'); 
 ?>
-<?php
-require_once('views/admin/header.php'); ?>
 
 <!-- Add CSS -->
 
 
 <?php
-require_once('views/admin/content_layouts.php'); ?>
+require_once('./../content_layouts.php'); ?>
 
 <!-- Code -->
 <div class="content-wrapper">
@@ -22,14 +19,14 @@ require_once('views/admin/content_layouts.php'); ?>
             <div class="float-end">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Quản lý Khách hàng</li>
+                    <li class="breadcrumb-item active">Quản lý Đơn hàng</li>
                 </ol>
             </div>
         </div>
         <div class="container-fluid row">
             <div class="my-3">
                 <p class="row">
-                <h1 class="text-center">Quản lý Bình luận</h1>
+                <h1 class="text-center">Quản lý Đơn hàng</h1>
                 </p>
             </div>
         </div>
@@ -49,12 +46,14 @@ require_once('views/admin/content_layouts.php'); ?>
                                         <div class="modal-header">
                                             <h5 class="modal-title">Thêm mới bình luận</h5><button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         </div>
-                                        <form action="index.php?page=admin&controller=comments&action=add" enctype="multipart/form-data" method="post">
+                                        <form action="" enctype="multipart/form-data" method="post">
                                             <div class="modal-body">
                                                 <div class="form-group"><label>Nội dung</label><input class="form-control my-2" type="text" placeholder="Nội dung" name="content" /></div>
                                                 <div class="form-group"><label>ID bài viết</label>
                                                     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="news_id">
                                                         <?php
+                                                        $query = "SELECT * FROM customer_order";
+                                                        $res = mysqli_query($connect, $query);
                                                         foreach ($news as $new) {
                                                             echo    "<option> " . $new->id . "</option>";
                                                         }
@@ -212,10 +211,10 @@ require_once('views/admin/content_layouts.php'); ?>
 
 
 <?php
-require_once('views/admin/footer.php'); ?>
+require_once('./../footer.php'); ?>
 
 <!-- Add Javascripts -->
-<script src="assets\javascripts\comment\index.js"></script>
+<script src="index.js"></script>
 
 </body>
 

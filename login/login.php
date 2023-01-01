@@ -3,7 +3,7 @@
     include_once './../connect.php';
     session_start();
     if(isset($_SESSION['admin'])) {
-        header("location:./../admin/admin.php");
+        header("location:./../admin/layouts");
     }
     if(isset($_SESSION['user'])) {
         header("location:./../user/infor.php");
@@ -17,7 +17,7 @@
         } else {
             if($username == "admin" && $password == "admin") {
                 $_SESSION['admin'] = TRUE;
-                header("location:./../admin/admin.php");
+                header("location:./../admin/layouts");
             } else {
                 $query = "SELECT * FROM user WHERE user.account='$username' AND user.password='$password';";
                 $res = mysqli_query($connect, $query);

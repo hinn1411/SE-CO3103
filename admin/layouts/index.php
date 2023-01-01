@@ -24,7 +24,7 @@ require_once('./../content_layouts.php'); ?>
 		<div class="container-fluid row">
 			<div class="my-3">
 				<p class="row">
-				<h2 class="text-center">FUNNY Admin</h2>
+				<h2 class="text-center">Quản trị viên của FUNNY</h2>
 				</p>
 			</div>
 		</div>
@@ -38,7 +38,7 @@ require_once('./../content_layouts.php'); ?>
 				<!-- /.row -->
 			</div>
 			<div class="row">
-				<div class="col-md-12 col-lg-6 col-xl-4">
+				<div class="col-md-12 col-lg-6 col-xl-6">
 					<div class="card">
 						<!-- <img src="..." class="card-img-top" alt="..."> -->
 						<div class="card-body">
@@ -46,43 +46,27 @@ require_once('./../content_layouts.php'); ?>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12 col-lg-6 col-xl-4">
+				<div class="col-md-12 col-lg-6 col-xl-6">
 					<div class="card">
 						<!-- <img src="..." class="card-img-top" alt="..."> -->
 						<div class="card-body">
-							<a href="index.php?page=admin&controller=user&action=index" class="btn btn-primary">Quản lý Khách hàng</a>
+							<a href="./../user/index.php" class="btn btn-primary">Quản lý Khách hàng</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12 col-lg-6 col-xl-4">
+				<div class="col-md-12 col-lg-6 col-xl-6 mt-4">
 					<div class="card">
 						<!-- <img src="..." class="card-img-top" alt="..."> -->
 						<div class="card-body">
-							<a href="index.php?page=admin&controller=products&action=index" class="btn btn-primary">Quản lý Sản phẩm</a>
+							<a href="./../products/index.php" class="btn btn-primary">Quản lý Sản phẩm</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12 col-lg-6 col-xl-4">
+				<div class="col-md-12 col-lg-6 col-xl-6 mt-4">
 					<div class="card">
 						<!-- <img src="..." class="card-img-top" alt="..."> -->
 						<div class="card-body">
-							<a href="index.php?page=admin&controller=comments&action=index" class="btn btn-primary">Quản lý Bình luận</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12 col-lg-6 col-xl-4">
-					<div class="card">
-						<!-- <img src="..." class="card-img-top" alt="..."> -->
-						<div class="card-body">
-							<a href="index.php?page=admin&controller=news&action=index" class="btn btn-primary">Quản lý Bài viết</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12 col-lg-6 col-xl-4">
-					<div class="card">
-						<!-- <img src="..." class="card-img-top" alt="..."> -->
-						<div class="card-body">
-							<a href="index.php?page=admin&controller=company&action=index" class="btn btn-primary">Quản lý Chi nhánh</a>
+							<a href="./../comments/index.php" class="btn btn-primary">Quản lý Đơn hàng</a>
 						</div>
 					</div>
 				</div>

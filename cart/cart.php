@@ -71,7 +71,7 @@
                 <hr>
                 <div class="row">
                     <div class="col fs-4">Tổng Tiền</div>
-                    <div class="col orange"><?php echo number_format($_SESSION['tot'], 0, '.', ',') ?> đ</div>
+                    <div class="col orange" id="tot"><?php echo number_format($_SESSION['tot'], 0, '.', ',') ?> đ</div>
                 </div>
                 <hr>
                 <a href="./../cart/checkout.php"><button id="buy" type="button" class="container btn btn-dark text-white orange">Mua</button></a>
@@ -80,7 +80,13 @@
         </div>
     </main>
     <script>
-
+        function check() {
+            let tot = document.getElementById('tot');
+            if (tot == "0 đ") {
+                document.getElementById('buy').disable = true;
+            }
+        }
+        check();
         function minus(id) {
             let num = parseInt($("#quantity_" + id).val());
             Update_Delete(id, num - 1);
