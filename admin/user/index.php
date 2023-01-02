@@ -121,7 +121,7 @@ require_once('./../content_layouts.php'); ?>
                                                         <div class="form-group">
                                                             <div class="row"> </div>
                                                             <label>Mật khẩu</label>
-                                                            <input class="form-control my-2" type="text" placeholder="Nhập mật khẩu" name="lname" />
+                                                            <input class="form-control my-2" type="password" placeholder="Nhập mật khẩu" name="lname" />
                                                         </div>
                                                     </div>
                                                 </div>

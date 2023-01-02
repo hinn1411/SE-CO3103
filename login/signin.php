@@ -21,7 +21,7 @@
             } else {
                 $query = "INSERT INTO user (account, password, name, gender, dob) 
                 VALUES('$username', '$password', '$name', '$gender', '$dob');";
-                echo $query;
+                // echo $query;
                 $res = mysqli_query($connect, $query);
                 echo '<script>alert("Đăng ký tài khoản thành công")</script>';
             }

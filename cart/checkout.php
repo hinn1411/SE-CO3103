@@ -2,6 +2,14 @@
     include_once './../navbar.php';
     include_once './../connect.php';
     session_start();
+    if(!isset($_SESSION['user'])) {
+        header("location:./../login/login.php");
+    } else {
+        if($_SESSION['tot'] == 0) {
+            echo '<script>alert("Vui lòng mua thêm sản phẩm")</script>';
+            // header("location:cart.php");
+        }
+    }
     if(isset($_SESSION["cart"])) {
         $item = json_encode($_SESSION["cart"]);
         $username = $_SESSION["user"];

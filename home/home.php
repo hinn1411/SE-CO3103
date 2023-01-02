@@ -59,11 +59,6 @@
         <div>Áo khoác Smoking Chill</div>
         <div>200.000đ</div>
       </div>
-      <div style="margin-top:1%;">
-        <a class="text-decoration-underline anchor-style">1</a>
-        <a href="./../home/new-2.html">2</a>
-        <a href=".com">3</a>
-      </div>
     </div>
 
     <div class="text-center fs-1" style="margin-top:2.5%; margin-bottom: 2.5%;">TRENDING</div>
@@ -83,11 +78,7 @@
         <div>Áo len nỉ cao cổ áo dài tay</div>
         <div>200.000đ</div>
       </div>
-      <div style="margin-top:1%;">
-        <a class="text-decoration-underline">1</a>
-        <a href=".com">2</a>
-        <a href=".com">3</a>
-      </div>
+
     </div>
   </div>
   <div class="col-md-2"></div>
@@ -99,9 +90,9 @@
     $query = "SELECT * FROM user WHERE account = '$username'";
     $res = mysqli_query($connect, $query);
     $row = mysqli_fetch_row($res);
-    if(mysqli_num_rows($res) > 0) {
-      echo $username;
-    }
+    // if(mysqli_num_rows($res) > 0) {
+    //   echo $username;
+    // }
     if(isset($_POST['update-user'])) {
       if(empty($_POST['password'])) {
         echo '<script>alert("Không được để trống thông tin")</script>';
@@ -138,13 +129,13 @@
                   </div>
                   <div class="col">
                     <input type="text" class="form-control" style="font-size: medium;" readonly
-                      value="<?php echo $row[1] ?>">
+                      value="<?php echo isset($row)?$row[1]:false; ?>">
                   </div>
                   <div class="col-4">
                     <p style="font-size: 15px;">Mật khẩu:</p>
                   </div>
                   <div class="col"><input type="text" class="form-control" style="font-size: medium;" readonly
-                      value="<?php echo $row[2] ?>"></div>
+                      value="<?php echo isset($row)?$row[2]:false; ?>"></div>
                   <div class="col-4">
                     <p style="font-size: 15px;">Giới tính:</p>
                   </div>
@@ -152,11 +143,11 @@
                     <div class="container">
                       <div class="row">
                         <p class="col" style="font-size: medium;">
-                          <input type="radio" name="gender" <?php if($row[4]=="Nam" ) { echo "checked" ; } else {
+                          <input type="radio" name="gender" <?php if(isset($row) && $row[4]=="Nam" ) { echo "checked" ; } else {
                             echo "disabled" ; } ?>> Nam
                         </p>
                         <p class="col" style="font-size: medium;">
-                          <input type="radio" name="gender" <?php if($row[4]=="Nu" ) { echo "checked" ; } else {
+                          <input type="radio" name="gender" <?php if(isset($row) && $row[4]=="Nu" ) { echo "checked" ; } else {
                             echo "disabled" ; } ?>> Nữ
                         </p>
                       </div>
@@ -166,7 +157,7 @@
                     <p style="font-size: 15px;">Ngày sinh:</p>
                   </div>
                   <div class="col">
-                    <input type="text" style="height: 30px; width: 200px;" value="<?php echo $row[5]; ?>" readonly>
+                    <input type="text" style="height: 30px; width: 200px;" value="<?php echo isset($row)?$row[5]:false; ?>" readonly>
                   </div>
                 </div>
               </div>
@@ -178,7 +169,7 @@
       </div>
       <div class="modal-footer">
         <button style="font-size: medium;" class="btn btn-primary" data-bs-target="#exampleModalToggle2"
-          data-bs-toggle="modal" data-bs-dismiss="modal">Cập nhật thông tin</button>
+          data-bs-toggle="modal" data-bs-dismiss="modal">Thay đổi mật khẩu</button>
         <a href="./../login/logout.php"><button style="font-size: medium;" type="button" class="btn btn-secondary">Đăng
             xuất</button></a>
       </div>
@@ -206,12 +197,12 @@
                     </div>
                     <div class="col ">
                       <input type="email" class="form-control" style="font-size: medium;" name="username" readonly
-                        value="<?php echo $row[1] ?>">
+                        value="<?php echo isset($row)?$row[1]:false; ?>">
                     </div>
                     <div class="col-4">
                       <p style="font-size: 15px;">Mật khẩu:</p>
                     </div>
-                    <div class="col "><input type="text" class="form-control" style="font-size: medium;" name="password"
+                    <div class="col "><input type="password" class="form-control" style="font-size: medium;" name="password"
                         required></div>
                     <div class="col-4">
                       <p style="font-size: 15px;">Giới tính:</p>
@@ -220,11 +211,11 @@
                       <div class="container">
                         <div class="row">
                           <p class="col" style="font-size: medium;">
-                            <input type="radio" name="gender" value="Nam" <?php if($row[4]=="Nam" ) { echo "checked" ; }
+                            <input type="radio" name="gender" value="Nam" <?php if(isset($row) && $row[4]=="Nam" ) { echo "checked" ; }
                               else { echo "disabled" ; } ?>> Nam
                           </p>
                           <p class="col" style="font-size: medium;">
-                            <input type="radio" name="gender" value="Nu" <?php if($row[4]=="Nu" ) { echo "checked" ; }
+                            <input type="radio" name="gender" value="Nu" <?php if(isset($row) && $row[4]=="Nu" ) { echo "checked" ; }
                               else { echo "disabled" ; } ?>> Nữ
                           </p>
                         </div>
@@ -234,7 +225,7 @@
                       <p style="font-size: 15px;">Ngày sinh:</p>
                     </div>
                     <div class="col "><input type="text" style="height: 30px; width: 200px;" name="birthtime"
-                        value="<?php echo $row[5] ?>" readonly></div>
+                        value="<?php echo isset($row)?$row[5]:false; ?>" readonly></div>
                   </div>
                 </div>
               </div>

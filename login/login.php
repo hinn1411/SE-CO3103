@@ -15,7 +15,11 @@
         if(empty($username) || empty($password)) {
             echo '<script>alert("Tài khoản và mật khẩu không được để trống")</script>';
         } else {
-            if($username == "admin" && $password == "admin") {
+            $query = "SELECT * FROM admin WHERE name='$username' AND password='$password';";
+            $res = mysqli_query($connect, $query);
+            $row = mysqli_fetch_row($res);
+            $numOfRows = mysqli_num_rows($res);
+            if($numOfRows > 0) {
                 $_SESSION['admin'] = TRUE;
                 header("location:./../admin/layouts");
             } else {

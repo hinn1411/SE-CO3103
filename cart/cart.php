@@ -11,7 +11,7 @@
                 <div class="fs-2">Trang Chủ/ Giỏ Hàng</div>
                 <div class="fs-3">Giỏ Hàng Của Bạn</div>
                 <hr>
-                <div class="row text-start">
+                <div class="row text-start" >
                     <div class="col-md-5">Sản Phẩm</div>
                     <div class="col-md-4 text-center">Số Lượng</div>
                     <div class="col-md-3 text-start">Thành Tiền</div>
@@ -74,16 +74,18 @@
                     <div class="col orange" id="tot"><?php echo number_format($_SESSION['tot'], 0, '.', ',') ?> đ</div>
                 </div>
                 <hr>
-                <a href="./../cart/checkout.php"><button id="buy" type="button" class="container btn btn-dark text-white orange">Mua</button></a>
+                <a href="./../cart/checkout.php" id="buy"><button type="button" class="container btn btn-dark text-white orange">Mua</button></a>
             </div>
             <div class="col-md-2"></div>
         </div>
     </main>
     <script>
         function check() {
-            let tot = document.getElementById('tot');
+            let tot = document.getElementById('tot').innerHTML;
+            // alert(tot);
             if (tot == "0 đ") {
-                document.getElementById('buy').disable = true;
+                // alert("true");
+                document.getElementById('buy').removeAttribute("href");
             }
         }
         check();
@@ -111,7 +113,7 @@
 <?php
   if(isset($_SESSION['user'])) {
     $username = $_SESSION['user'];
-    echo $username;
+    // echo $username;
   }
 ?>
 <?php

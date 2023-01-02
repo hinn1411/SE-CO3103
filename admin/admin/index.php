@@ -148,13 +148,13 @@ require_once('./../content_layouts.php'); ?>
 											<div class="modal-body">
 												<input type="hidden" name="id" />
 												<div class="form-group">
-													<label>Username</label>
+													<label>Tên tài khoản</label>
 													<input type="hidden" name="username" />
 													<input class="form-control my-2" type="text" placeholder="Username" name="username"  disabled/>
 												</div>
 												<div class="form-group">
-													<label>New password</label>
-													<input class="form-control my-2" type="password" placeholder="Please enter your new password" name="new-password" />
+													<label>Mật khẩu mới</label>
+													<input class="form-control my-2" type="password" placeholder="Nhập mật khẩu mới" name="new-password" />
 												</div>
 											</div>
 											<div class="modal-footer">
